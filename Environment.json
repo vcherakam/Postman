@@ -1,0 +1,16 @@
+{
+  "id": "1fac59cf-e029-90c4-ab57-96aacf3e67d7",
+  "name": "Sample",
+  "values": [
+    {
+      "enabled": true,
+      "key": "URL",
+      "value": "https://reqres.in",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1553755362158,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2019-03-28T06:53:47.195Z",
+  "_postman_exported_using": "Postman/5.5.4"
+}

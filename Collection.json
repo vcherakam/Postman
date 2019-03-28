@@ -1,0 +1,140 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Sample",
+		"_postman_id": "eca468e3-aaa9-aa44-ce6c-fb7ae30e1eb6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Install Bdd For Postman",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable('postmanBDD',responseBody);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.js",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Validate login functionality by providing valid credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"eval(postman.getGlobalVariable('postmanBDD'));",
+							"",
+							"describe('Verifying URL Status', function() {",
+							"    it('should be 200', function() {",
+							"       response.should.have.status(200);",
+							"       response.body.should.have.property('token', \"QpwL5tke4Pnpja7X\");",
+							"      ",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " {{URL}}/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"peter@klaven\",\r\n    \"password\": \"cityslicka\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Validate login functionality by providing invalid credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"Status code is 400\"] = responseCode.code === 400;",
+							"tests[\"Please check your password\"] = data.error ===\"Missing password\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " {{URL}}/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"peter@klaven\"\r\n    \r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Validate API service with invalid URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"eval(postman.getGlobalVariable('postmanBDD'));",
+							"describe('Verifying URL Status', function() {",
+							"    it('API is Invalid URL', function() {",
+							"       response.should.have.status(404);",
+							"      ",
+							"      ",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL}}/ap",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
