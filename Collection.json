@@ -1,10 +1,8 @@
 {
-	"variables": [],
 	"info": {
-		"name": "Sample",
-		"_postman_id": "eca468e3-aaa9-aa44-ce6c-fb7ae30e1eb6",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"_postman_id": "670cb882-b73a-4953-94e5-30e8978b83e6",
+		"name": "Sample copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -21,11 +19,21 @@
 				}
 			],
 			"request": {
-				"url": "http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.js",
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": ""
+				"url": {
+					"raw": "http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.js",
+					"protocol": "http",
+					"host": [
+						"bigstickcarpet",
+						"com"
+					],
+					"path": [
+						"postman-bdd",
+						"dist",
+						"postman-bdd.js"
+					]
+				}
 			},
 			"response": []
 		},
@@ -35,36 +43,44 @@
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
+						"id": "3d0e03b1-0bd1-4edf-8cb6-b281f58858fd",
 						"exec": [
 							"eval(postman.getGlobalVariable('postmanBDD'));",
 							"",
 							"describe('Verifying URL Status', function() {",
 							"    it('should be 200', function() {",
 							"       response.should.have.status(200);",
-							"       response.body.should.have.property('token', \"QpwL5tke4Pnpja7X\");",
+							"       response.body.should.have.property('token', \"QpwL5tke4Pnpja7X4\");",
 							"      ",
 							"    });",
 							"});"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
 			"request": {
-				"url": " {{URL}}/api/login",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\": \"peter@klaven\",\r\n    \"password\": \"cityslicka\"\r\n}"
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"cityslicka\"\r\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "{{URL}}/api/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
@@ -84,20 +100,27 @@
 				}
 			],
 			"request": {
-				"url": " {{URL}}/api/login",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\"email\": \"peter@klaven\"\r\n    \r\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "{{URL}}/api/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
@@ -122,17 +145,22 @@
 				}
 			],
 			"request": {
-				"url": "{{URL}}/ap",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
-				"body": {},
-				"description": ""
+				"url": {
+					"raw": "{{URL}}/ap",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"ap"
+					]
+				}
 			},
 			"response": []
 		}
